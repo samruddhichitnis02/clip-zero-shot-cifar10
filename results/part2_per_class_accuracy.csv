@@ -1,0 +1,12 @@
+class,n_images,acc_single_template,acc_prompt_ensemble_18
+airplane,1000,0.889,0.915
+automobile,1000,0.933,0.943
+bird,1000,0.897,0.891
+cat,1000,0.857,0.853
+deer,1000,0.769,0.824
+dog,1000,0.89,0.874
+frog,1000,0.716,0.816
+horse,1000,0.971,0.975
+ship,1000,0.959,0.954
+truck,1000,0.949,0.938
+OVERALL,10000,0.883,0.8983

@@ -1,0 +1,11 @@
+true,predicted,count
+deer,horse,121
+cat,dog,80
+dog,cat,63
+frog,cat,62
+airplane,bird,52
+automobile,truck,52
+frog,bird,49
+truck,automobile,49
+bird,deer,35
+bird,horse,30

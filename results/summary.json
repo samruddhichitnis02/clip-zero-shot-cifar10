@@ -1,0 +1,89 @@
+{
+  "model": "ViT-B-32-quickgelu (openai)",
+  "device": "cuda",
+  "part1": {
+    "caption": "a photo of a dog",
+    "n_images": 1000,
+    "images_per_class": 100,
+    "mean_cos_target_class": 0.26122716069221497,
+    "mean_cos_other_classes": 0.2156730443239212,
+    "retrieval_precision": {
+      "P@10": 0.9,
+      "P@50": 0.88,
+      "P@100": 0.78
+    },
+    "matching_caption_is_max_for_n_classes": 10
+  },
+  "part2": {
+    "n_test_images": 10000,
+    "accuracy": {
+      "single_template": 0.883,
+      "prompt_ensemble_18": 0.8983
+    },
+    "best_strategy": "prompt_ensemble_18",
+    "per_class_accuracy_best": {
+      "airplane": 0.915,
+      "automobile": 0.943,
+      "bird": 0.891,
+      "cat": 0.853,
+      "deer": 0.824,
+      "dog": 0.874,
+      "frog": 0.816,
+      "horse": 0.975,
+      "ship": 0.954,
+      "truck": 0.938
+    },
+    "top_confusions": [
+      {
+        "true": "deer",
+        "predicted": "horse",
+        "count": 121
+      },
+      {
+        "true": "cat",
+        "predicted": "dog",
+        "count": 80
+      },
+      {
+        "true": "dog",
+        "predicted": "cat",
+        "count": 63
+      },
+      {
+        "true": "frog",
+        "predicted": "cat",
+        "count": 62
+      },
+      {
+        "true": "airplane",
+        "predicted": "bird",
+        "count": 52
+      },
+      {
+        "true": "automobile",
+        "predicted": "truck",
+        "count": 52
+      },
+      {
+        "true": "frog",
+        "predicted": "bird",
+        "count": 49
+      },
+      {
+        "true": "truck",
+        "predicted": "automobile",
+        "count": 49
+      },
+      {
+        "true": "bird",
+        "predicted": "deer",
+        "count": 35
+      },
+      {
+        "true": "bird",
+        "predicted": "horse",
+        "count": 30
+      }
+    ]
+  }
+}
