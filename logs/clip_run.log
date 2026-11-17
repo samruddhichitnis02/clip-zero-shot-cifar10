@@ -1,0 +1,85 @@
+2026-11-17 08:28:47 | INFO | Python 3.11.0 | torch 2.6.0+cu124 | torchvision 0.21.0+cu124 | open_clip 4.2.2
+2026-11-17 08:28:47 | INFO | Device: cuda (NVIDIA GeForce RTX 3060 Laptop GPU)
+2026-11-17 08:28:50 | INFO | Loaded CLIP ViT-B-32-quickgelu (openai) with 151.3M params in 3.0s
+2026-11-17 08:28:50 | INFO | Learned logit scale (temperature^-1): 100.00
+2026-11-17 08:28:51 | INFO | CIFAR-10 test set: 10000 images, classes = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+2026-11-17 08:28:51 | INFO | Part 1 subset: 1000 images (100 per class) -> counts [100, 100, 100, 100, 100, 100, 100, 100, 100, 100]
+2026-11-17 08:28:52 | INFO | Saved figure -> results/figures/p1_sample_images.png
+2026-11-17 08:28:52 | INFO | Main caption: 'a photo of a dog'
+2026-11-17 08:28:57 | INFO | Image embeddings: (1000, 512), text embedding: (1, 512) (5.3s)
+2026-11-17 08:28:57 | INFO | Norm check -> image norms mean 1.0000, text norm 1.0000
+2026-11-17 08:28:57 | INFO | Saved per-image similarity scores -> results/part1_similarity_scores.csv
+2026-11-17 08:28:57 | INFO | Per-class similarity to 'a photo of a dog':
+              mean     std     min     max  median
+true_class                                        
+dog         0.2612  0.0106  0.2247  0.2840  0.2627
+cat         0.2398  0.0119  0.2088  0.2765  0.2404
+deer        0.2336  0.0143  0.1890  0.2657  0.2328
+frog        0.2289  0.0118  0.1969  0.2567  0.2296
+bird        0.2264  0.0128  0.2023  0.2687  0.2264
+horse       0.2190  0.0146  0.1730  0.2597  0.2179
+airplane    0.2043  0.0137  0.1616  0.2379  0.2039
+automobile  0.2006  0.0109  0.1732  0.2260  0.1995
+ship        0.1949  0.0143  0.1635  0.2347  0.1950
+truck       0.1937  0.0113  0.1665  0.2317  0.1913
+2026-11-17 08:28:57 | INFO | Retrieval precision for 'dog': P@10=0.90, P@50=0.88, P@100=0.78
+2026-11-17 08:28:58 | INFO | Saved figure -> results/figures/p1_similarity_distribution_by_class.png
+2026-11-17 08:29:00 | INFO | Saved figure -> results/figures/p1_top20_images.png
+2026-11-17 08:29:01 | INFO | Saved figure -> results/figures/p1_bottom10_images.png
+2026-11-17 08:29:05 | INFO | Saved figure -> results/figures/p1_random_images_per_class_with_scores.png
+2026-11-17 08:29:08 | INFO | Saved figure -> results/figures/p1_class_vs_caption_heatmap.png
+2026-11-17 08:29:08 | INFO | Matching caption has the highest mean similarity for 10/10 classes
+2026-11-17 08:29:08 | INFO | Mean diagonal (matching) cos = 0.2598; mean off-diagonal cos = 0.2060
+2026-11-17 08:29:54 | INFO | Encoded all 10000 test images -> (10000, 512) in 46.4s
+2026-11-17 08:29:55 | INFO | Zero-shot [single_template] top-1 accuracy = 88.30%
+2026-11-17 08:29:55 | INFO | Zero-shot [prompt_ensemble_18] top-1 accuracy = 89.83%
+2026-11-17 08:29:55 | INFO | Per-class zero-shot accuracy:
+            acc_single_template  acc_prompt_ensemble_18
+class                                                  
+airplane                   88.9                   91.50
+automobile                 93.3                   94.30
+bird                       89.7                   89.10
+cat                        85.7                   85.30
+deer                       76.9                   82.40
+dog                        89.0                   87.40
+frog                       71.6                   81.60
+horse                      97.1                   97.50
+ship                       95.9                   95.40
+truck                      94.9                   93.80
+OVERALL                    88.3                   89.83
+2026-11-17 08:29:55 | INFO | Best strategy: prompt_ensemble_18 (89.83%)
+2026-11-17 08:29:55 | INFO | Saved figure -> results/figures/p2_per_class_accuracy.png
+2026-11-17 08:29:57 | INFO | Saved figure -> results/figures/p2_confusion_matrix.png
+2026-11-17 08:29:58 | INFO | Classification report (prompt_ensemble_18):
+              precision    recall  f1-score   support
+
+    airplane     0.9482    0.9150    0.9313      1000
+  automobile     0.9254    0.9430    0.9341      1000
+        bird     0.8398    0.8910    0.8646      1000
+         cat     0.8471    0.8530    0.8500      1000
+        deer     0.8937    0.8240    0.8574      1000
+         dog     0.8749    0.8740    0.8744      1000
+        frog     0.9577    0.8160    0.8812      1000
+       horse     0.8340    0.9750    0.8990      1000
+        ship     0.9483    0.9540    0.9511      1000
+       truck     0.9380    0.9380    0.9380      1000
+
+    accuracy                         0.8983     10000
+   macro avg     0.9007    0.8983    0.8981     10000
+weighted avg     0.9007    0.8983    0.8981     10000
+
+2026-11-17 08:29:58 | INFO | Top-10 confusions:
+      true  predicted  count
+      deer      horse    121
+       cat        dog     80
+       dog        cat     63
+      frog        cat     62
+  airplane       bird     52
+automobile      truck     52
+      frog       bird     49
+     truck automobile     49
+      bird       deer     35
+      bird      horse     30
+2026-11-17 08:29:59 | INFO | Saved figure -> results/figures/p2_example_predictions.png
+2026-11-17 08:30:00 | INFO | Saved results/summary.json and results/part2_predictions.csv
+2026-11-17 08:30:00 | INFO | Run complete.
