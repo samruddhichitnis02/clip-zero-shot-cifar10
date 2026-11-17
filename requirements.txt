@@ -1,0 +1,11 @@
+﻿torch>=2.0
+torchvision
+open_clip_torch>=2.20
+numpy
+pandas
+pyarrow
+pillow
+matplotlib
+seaborn
+scikit-learn
+jupyter
